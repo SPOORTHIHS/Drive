@@ -1,0 +1,16 @@
+#include <stdio.h>
+int countDigitOne(int n) {
+    int ones = 0;
+    for (int i = 1; i <= n; i *= 10) {
+        int divider = i * 10;
+        ones += (n / divider) * i + fmin(fmax(n % divider - i + 1, 0), i);
+    }
+    return ones;
+}
+int main() {
+    int n1 = 13;
+    printf("Output for input 13: %d\n", countDigitOne(n1));
+    int n2 = 0;
+    printf("Output for input 0: %d\n", countDigitOne(n2));
+    return 0;
+}
