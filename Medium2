@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <limits.h>
+void printMajorityElements(int* arr, int n) {
+    int count1 = 0, count2 = 0;
+    int first = INT_MAX, second = INT_MAX;
+  
+    for (int i = 0; i < n; i++) {
+        if (first == arr[i]) {
+            count1++;
+        } else if (second == arr[i]) {
+            count2++;
+        } else if (count1 == 0) {
+            count1++;
+            first = arr[i];
+        } else if (count2 == 0) {
+            count2++;
+            second = arr[i];
+        } else {
+            count1--;
+            count2--;
+        }
+    }
+    count1 = 0;
+    count2 = 0;
+   for (int i = 0; i < n; i++) {
+        if (arr[i] == first) {
+            count1++;
+        } else if (arr[i] == second) {
+            count2++;
+        }
+    }
+   if (count1 > n / 3) {
+        printf("%d ", first);
+    }
+    if (count2 > n / 3 && first != second) {
+        printf("%d ", second);
+    }
+}
+int main() {
+    int arr1[] = {3, 2, 3};
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    printf("Output for input [3, 2, 3]: ");
+    printMajorityElements(arr1, n1);
+    
+    int arr2[] = {1};
+    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+    printf("\nOutput for input [1]: ");
+    printMajorityElements(arr2, n2);
+    
+    int arr3[] = {1, 2};
+    int n3 = sizeof(arr3) / sizeof(arr3[0]);
+    printf("\nOutput for input [1,2]: ");
+    printMajorityElements(arr3, n3);
+    
+    return 0;
+}
