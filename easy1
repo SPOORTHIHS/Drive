@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main() {
+  char str[] = "Hello world";
+  int n = strlen(str);
+  int i = n - 1;
+  while (str[i] == ' ') {
+    i--;
+  }
+  int j = i; 
+  while (str[j] != ' ') {
+    j--;
+  }
+  int len = i - j;
+ printf("Length of the last word: %d", len);
+  return 0;
+}
