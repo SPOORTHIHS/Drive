@@ -5,7 +5,7 @@
 - hard3.c
 - README.md
 #Usage
- the individual files to review the implementations of specific algorithms and data structures. Each file contains detailed comments and examples to demonstrate the usage and functionality.
+ the individual files to review the implementations of specific algorithms and data structures.
 # Examples
 The code includes examples and test cases to illustrate the functionality of each algorithm or data structure.the examples within the files to understand the usage.
 
